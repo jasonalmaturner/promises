@@ -18,7 +18,7 @@ $scope.getAllTheBirds = function(){
 	})
 };
 
-console.log($scope)
+// console.log($scope)
 
 $scope.getSoManyBirds = function(){
 	service.getSoManyBirds().then(function(response){

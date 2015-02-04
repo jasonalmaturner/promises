@@ -9,16 +9,16 @@ this.getBirds = function(){
 	return birds;
 }
 
-// this.birdIsTheWord = function(){
-// 	var deferred = $q.defer();
-// 	console.log(deferred);
-// 	if(birds){
-// 		deferred.resolve(birds);		
-// 	} else {
-// 		deferred.reject('bird is not the word');
-// 	}
-// 	return deferred.promise;
-// }
+this.birdIsTheWord = function(){
+	var deferred = $q.defer();
+	console.log(deferred);
+	if(birds){
+		deferred.resolve(birds);		
+	} else {
+		deferred.reject('bird is not the word');
+	}
+	return deferred.promise;
+}
 
 this.getSoManyBirds = function(){
 	return $http({
