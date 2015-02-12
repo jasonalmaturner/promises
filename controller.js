@@ -2,31 +2,27 @@ var app = angular.module('mahPromises');
 
 app.controller('controller', function($scope, service){
 
-$scope.name = 'jason';
+// $scope.birdies = theBirds;
 
 // $scope.birds = service.getBirds();
 
 $scope.getAllTheBirds = function(){
 
-	// $scope.birds = service.birdIsTheWord();
-	// console.log($scope.birds);
-
 	service.birdIsTheWord().then(function(response){
-		$scope.birds = response;
-	}, function(error){
-		alert(error);
-	})
-};
-
-// console.log($scope)
-
-$scope.getSoManyBirds = function(){
-	service.getSoManyBirds().then(function(response){
 		console.log(response);
-		$scope.birdies = response.data;
-		console.log($scope.birdies);
-	}, function(error){
-		console.log(error);
+		$scope.birds = response;
+	}, function(err){
+		console.log(err);
+	});
+	console.log($scope.birds);
+};
+// I commented this out, because I'm getting the data in the resolve in app.js.
+$scope.getSoManyBirds = function(){
+	service.getSoManyBirds().then(function(res){
+		// console.log(res);
+		$scope.birdies = res
+	}, function(err){
+		console.log(err);
 	})
 }
 
