@@ -4,13 +4,14 @@
 <title>Mah Promises</title>
 <style type="text/css" ref='style.css'></style>
 </head>
-<body ng-controller="controller">
+<!-- <body ng-controller="controller">
 
 <div ng-click='getAllTheBirds()'>Click Me</div>
 <div ng-click='getSoManyBirds()'>Click Me Instead</div>
 
 <div ng-repeat='bird in birds'>{{bird.commonName}}, {{bird.type}}</div>
-<div ng-repeat='flyer in birdies'> {{flyer.sciName}} is known by its common name, {{flyer.comName}}. {{flyer.howMany}} were/was spotted at {{flyer.locName}} on {{flyer.obsDt}} </div>
+<div ng-repeat='flyer in birdies'> {{flyer.sciName}} is known by its common name, {{flyer.comName}}. {{flyer.howMany}} were/was spotted at {{flyer.locName}} on {{flyer.obsDt}} </div> -->
+<ng-view></ng-view>
 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.12/angular-route.min.js'></script>

@@ -1,10 +1,10 @@
 var app = angular.module('mahPromises');
 
-app.controller('controller', function($scope, service){
+app.controller('controller', function($scope, service, theBirds){
 
-// $scope.birdies = theBirds;
-
+$scope.birdies = theBirds;
 // $scope.birds = service.getBirds();
+
 
 $scope.getAllTheBirds = function(){
 
@@ -16,14 +16,16 @@ $scope.getAllTheBirds = function(){
 	});
 	console.log($scope.birds);
 };
-// I commented this out, because I'm getting the data in the resolve in app.js.
-$scope.getSoManyBirds = function(){
-	service.getSoManyBirds().then(function(res){
-		// console.log(res);
-		$scope.birdies = res
-	}, function(err){
-		console.log(err);
-	})
-}
+// // I commented this out, because I'm getting the data in the resolve in app.js.
+// $scope.getSoManyBirds = function(){
+// 	service.getSoManyBirds().then(function(res){
+// 		// console.log(res);
+// 		$scope.birdies = res;
+// 	}, function(err){
+// 		console.log(err);
+// 	})
+// };
+//
+// $scope.getSoManyBirds();
 
 })
