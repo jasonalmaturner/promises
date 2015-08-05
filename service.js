@@ -2,13 +2,6 @@ var app = angular.module('mahPromises');
 
 app.service('service', function($http, $q){
 
-// var birds = [{commonName: 'snowy plover', type: 'plover'}, {commonName: 'western meadowlark', type: 'icterid'}, {commonName:'red breasted merganser', type: 'duck'}, {commonName:'black capped chickadee', type: 'passerine, chickadee'}, {commonName:'northern shoveler', type: 'duck'}, {commonName:'sharp shinned hawk', type: 'raptor'}, {commonName:'blue heron', type: 'wading bird'}, {commonName:'snowy egret', type: 'wading bird'}, {commonName:'barn owl', type: 'owl'}, {commonName:'osprey', type:'raptor'}, {commonName:'sage grouse',type:'game bird'}];
-var birds;
-
-// this.getBirds = function(){
-// 	return birds;
-// }
-
 this.getSoManyBirds = function(){
 	var deferred = $q.defer();
 
@@ -22,7 +15,28 @@ this.getSoManyBirds = function(){
 	})
 
 	return deferred.promise;
-}
+};
+
+this.getWeather = function(coords){
+	var dfd = $q.defer();
+	$http({
+		method: 'GET',
+		url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&lat=' + coords.lat + '&lon=' + coords.lon
+	}).then(function(res){
+		console.log(res);
+		dfd.resolve(res.data);
+	}, function(err){
+		dfd.reject(err);
+	});
+	return dfd.promise;
+};
+// var birds = [{commonName: 'snowy plover', type: 'plover'}, {commonName: 'western meadowlark', type: 'icterid'}, {commonName:'red breasted merganser', type: 'duck'}, {commonName:'black capped chickadee', type: 'passerine, chickadee'}, {commonName:'northern shoveler', type: 'duck'}, {commonName:'sharp shinned hawk', type: 'raptor'}, {commonName:'blue heron', type: 'wading bird'}, {commonName:'snowy egret', type: 'wading bird'}, {commonName:'barn owl', type: 'owl'}, {commonName:'osprey', type:'raptor'}, {commonName:'sage grouse',type:'game bird'}];
+// var birds;
+
+// this.getBirds = function(){
+// 	return birds;
+// }
+
 
 	// getSoManyBirds().then(function(res){
 	// 	console.log(res)

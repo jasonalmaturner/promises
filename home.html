@@ -1,5 +1,16 @@
-<div ng-click='getAllTheBirds()'>Click Me</div>
-<div ng-click='getSoManyBirds()'>Click Me Instead</div>
+<div class='main-container'>
+  <div class='weather'>
+    place: {{weather.name}}
+    temp: {{weather.main.temp}}
+    description: {{weather.weather[0].description}}
+  </div>
+  <br>
+  <div class='birds-container'>
+    <!-- <button ng-click='getAllTheBirds()'>Click Me</button> -->
+    <!-- <button ng-click='getSoManyBirds()'>Click Me Instead</button> -->
 
-<div ng-repeat='bird in birds'>{{bird.commonName}}, {{bird.type}}</div>
-<div ng-repeat='flyer in birdies'> {{flyer.sciName}} is known by its common name, {{flyer.comName}}. {{flyer.howMany}} were/was spotted at {{flyer.locName}} on {{flyer.obsDt}} </div>
+    <div class='my-birds' ng-repeat='bird in birds'>{{bird.commonName}}, {{bird.type}}</div>
+    <div class='api-birds' ng-repeat='flyer in birdies'> {{flyer.sciName}} is known by its common name, {{flyer.comName}}. {{flyer.howMany}} were/was spotted at {{flyer.locName}} on {{flyer.obsDt}} </div>
+  </div>
+
+</div>
